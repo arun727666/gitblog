@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git and CI/CD Starter Blog</title>
+    <meta
+      name="description"
+      content="A clean starter page for Git basics, command cheatsheet, and CI/CD setup notes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-one" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-two" aria-hidden="true"></div>
+
+    <header class="hero reveal">
+      <p class="eyebrow">Developer Notes</p>
+      <h1>Git and CI/CD Blog Starter</h1>
+      <p class="subtitle">
+        A simple, modern guide for setting up Git, learning basic commands, and understanding a practical CI/CD flow.
+      </p>
+      <a class="hero-cta" href="#commands">Explore Commands</a>
+    </header>
+
+    <main class="layout">
+      <article class="card reveal">
+        <h2>1. What is Git?</h2>
+        <p>
+          Git is a distributed version control system. It tracks your code changes over time and helps teams work on the same project safely.
+        </p>
+        <ul>
+          <li>Track file history</li>
+          <li>Create branches for features</li>
+          <li>Collaborate using pull requests</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <h2>2. Basic Setup</h2>
+        <p>Run these once on your machine:</p>
+        <div class="command-block" data-command="git config --global user.name \"Your Name\"">
+          <code>git config --global user.name "Your Name"</code>
+          <button class="copy-btn" type="button">Copy</button>
+        </div>
+        <div class="command-block" data-command="git config --global user.email \"you@example.com\"">
+          <code>git config --global user.email "you@example.com"</code>
+          <button class="copy-btn" type="button">Copy</button>
+        </div>
+        <div class="command-block" data-command="git config --global init.defaultBranch main">
+          <code>git config --global init.defaultBranch main</code>
+          <button class="copy-btn" type="button">Copy</button>
+        </div>
+      </article>
+
+      <article class="card reveal" id="commands">
+        <h2>3. Basic Git Commands</h2>
+        <div class="command-grid">
+          <p><span>Initialize:</span> <code>git init</code></p>
+          <p><span>Check status:</span> <code>git status</code></p>
+          <p><span>Add files:</span> <code>git add .</code></p>
+          <p><span>Commit:</span> <code>git commit -m "First commit"</code></p>
+          <p><span>Add remote:</span> <code>git remote add origin &lt;repo-url&gt;</code></p>
+          <p><span>Push:</span> <code>git push -u origin main</code></p>
+          <p><span>Pull:</span> <code>git pull origin main</code></p>
+          <p><span>View log:</span> <code>git log --oneline</code></p>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <h2>4. CI/CD in Simple Words</h2>
+        <p>
+          CI/CD means your code gets automatically tested and deployed when you push changes.
+        </p>
+        <ol>
+          <li><strong>CI (Continuous Integration):</strong> Run lint, build, and tests on each push.</li>
+          <li><strong>CD (Continuous Delivery/Deployment):</strong> Deploy automatically after checks pass.</li>
+        </ol>
+        <p>Common tools: GitHub Actions, GitLab CI, Jenkins, Azure DevOps.</p>
+      </article>
+
+      <article class="card reveal">
+        <h2>5. Minimal GitHub Actions Example</h2>
+        <pre><code>name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run checks
+        run: echo "Run your tests here"</code></pre>
+      </article>
+    </main>
+
+    <footer class="footer reveal">
+      <p>Built for quick learning and project setup.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
